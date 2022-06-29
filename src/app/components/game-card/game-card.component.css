@@ -1,0 +1,13 @@
+.game-card {
+    width: 220px;
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+    align-items: center;
+    gap: 4px;
+}
+
+.game-img {
+    width: 200px;
+    height: 300px;
+}

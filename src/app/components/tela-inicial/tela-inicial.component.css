@@ -1,0 +1,11 @@
+.tela-inicial {
+    height: 100vh;
+    background-color: rgb(27, 25, 25)
+}
+
+.games-list {
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
