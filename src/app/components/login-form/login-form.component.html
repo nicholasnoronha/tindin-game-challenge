@@ -1,0 +1,18 @@
+<form [formGroup]="loginForm" class="login-form" (submit)="login()">
+    <div class="form-container">
+        <p class="sign-in"><b>SIGN IN</b></p>
+        <p class="account-text">Insert your Account Information</p>
+        <input #userNameInput formControlName="email"  type="text" name="email" placeholder="Username or Email">
+        <!-- *ngIf="loginForm.get('email').errors.required" -->
+        <!-- <small 
+            class="small-text">User name is required
+        </small> -->
+        <input formControlName="password" type="password" name="password" placeholder="Password">
+        <!-- *ngIf="loginForm.get('password').errors.required" -->
+        <!-- <small 
+            class="small-text">Password is required
+        </small> -->
+        <button type="submit">Login Your Acount</button>
+        <p class="create-account">No account? <b>Send email to fabio@tindin.com.br</b></p>
+    </div>
+</form>

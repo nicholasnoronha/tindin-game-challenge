@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Game } from '../../interfaces/Game';
 
 @Component({
   selector: 'app-game-card',
@@ -6,8 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./game-card.component.css']
 })
 export class GameCardComponent implements OnInit {
-  @Input() title: string = '';
-  @Input() description: string = '';
+  @Input() game: Game = {title: '', description: ''};
 
   constructor() { }
 

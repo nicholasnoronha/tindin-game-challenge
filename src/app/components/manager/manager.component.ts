@@ -3,15 +3,15 @@ import { GameService } from 'src/app/services/game.service';
 import { Game } from '../../interfaces/Game'
 
 @Component({
-  selector: 'app-tela-inicial',
-  templateUrl: './tela-inicial.component.html',
-  styleUrls: ['./tela-inicial.component.css']
+  selector: 'app-manager',
+  templateUrl: './manager.component.html',
+  styleUrls: ['./manager.component.css']
 })
-export class TelaInicialComponent implements OnInit {
+export class ManagerComponent implements OnInit {
   games: Game[] = []
-
-  constructor(private gameService: GameService) {}
   
+  constructor(private gameService: GameService) { }
+
   ngOnInit(): void {
     this.gameService
       .getGamesList()
@@ -20,4 +20,5 @@ export class TelaInicialComponent implements OnInit {
         this.games = res.games
       })
   }
+
 }
