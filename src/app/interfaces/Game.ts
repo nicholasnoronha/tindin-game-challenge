@@ -1,7 +1,12 @@
+import { Photo } from "./Photo";
+
 export interface Game {
     title: string;
     description: string;
-    photos?: Object[];
+    _id: string;
+    rating?: number;
+    totalVotes?: number;
+    photos?: Photo[];
     videos?: Object[];
     mediumPrice?: number;
     studio?: any;

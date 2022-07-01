@@ -49,6 +49,7 @@ img {
 }
 
 .login-button {
+    font-family: 'Roboto';
     border: none;
     background: none;
     outline: none;

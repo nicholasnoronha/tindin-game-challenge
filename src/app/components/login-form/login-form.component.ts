@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoginService } from '../../services/auth/login.service'
 import { User } from '../../interfaces/User'
 import { Router } from '@angular/router';
+import { TokenService } from 'src/app/services/auth/token.service';
 
 @Component({
   selector: 'app-login-form',
@@ -18,8 +19,11 @@ export class LoginFormComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private authService: LoginService,
+    private tokenService: TokenService,
     private router: Router  
-  ) { }
+  ) { 
+    // if(this.tokenService.hasToken()) this.router.navigateByUrl('home/games')
+  }
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
@@ -36,10 +40,11 @@ export class LoginFormComponent implements OnInit {
       .authenticate(email, password)
       .subscribe(res => {
         console.log(res.token)
+        this.tokenService.setToken(res.token)
         this.router.navigateByUrl('home/games')
       }, () => {
         this.loginForm.reset();
-        this.userNameInput.nativeElement.focus();
+        this.userNameInput.nativeElement.focus()
       })
   }
 }

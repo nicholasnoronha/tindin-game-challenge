@@ -13,6 +13,8 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import {  FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ManagerComponent } from './components/manager/manager.component';
+import { HighlightComponent } from './components/tela-inicial/highlight/highlight.component';
+import { GameDetailsComponent } from './components/game-details/game-details.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,8 @@ import { ManagerComponent } from './components/manager/manager.component';
     PageNotFoundComponent,
     LoginFormComponent,
     ManagerComponent,
+    HighlightComponent,
+    GameDetailsComponent,
   ],
   imports: [
     BrowserModule,

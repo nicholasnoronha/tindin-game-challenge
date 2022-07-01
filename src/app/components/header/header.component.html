@@ -4,5 +4,10 @@
         <input type="text" placeholder="Search game here">
         <button>Search</button>
     </div>
-    <button class="login-button">Login</button>
+    <button *ngIf="!isAuthenticated() else anotherButton" class="login-button" (click)="handleLoginClick()">Login</button>
+
 </div>
+
+<ng-template #anotherButton>
+    <button class="login-button" (click)="handleLogoutClick()">Logout</button>
+</ng-template>

@@ -1,6 +1,12 @@
-<div class="game-card">
-    <img class="game-img" src="../../../assets/img-not-found.png" alt="Game image">
-    <p>{{game.title}}</p>
-    <p>R$200</p>
-    <div>Rating</div>
-</div>
+<a (click)="navigateToDetails()" class="game-card">
+    <img [src]="getPrimaryPhoto()" class="game-img"  alt="Game image">
+    <p class="game-title">{{game.title | uppercase }}</p>
+    <p class="game-price" *ngIf="game.mediumPrice else free">${{game.mediumPrice}}</p>
+    <div class="game-rating">{{game.rating}}/10</div>
+</a>
+<ng-template #free>
+    <p class="game-price">Free</p>
+</ng-template>
+<!-- <ng-template #imgNotFound>
+    <img class="game-img" src="" alt="Game image">
+</ng-template> -->

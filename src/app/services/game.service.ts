@@ -17,4 +17,9 @@ export class GameService {
     return this.http
       .get<GamesReq>('https://api-labs.tindin.com.br/games')
   }
+
+  getGameDetails(id: string) {
+    return this.http
+      .get<Game>(`https://api-labs.tindin.com.br/game/${id}`)
+  }
 }
