@@ -15,13 +15,11 @@ export class GameCardComponent implements OnInit {
   ngOnInit(): void {}
   // (src)="game.photos[0]"
   navigateToDetails(): void {
-    console.log(this.game._id)
     this.router.navigateByUrl(`game/${this.game._id}`)
   }
 
   getPrimaryPhoto() {
     const primaryPhoto = !!this.game.photos?.length ? this.game.photos[0].url : '../../../assets/img-not-found.png'
-    console.log(primaryPhoto)
     return primaryPhoto
   }
 }

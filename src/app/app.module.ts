@@ -15,6 +15,8 @@ import {  FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ManagerComponent } from './components/manager/manager.component';
 import { HighlightComponent } from './components/tela-inicial/highlight/highlight.component';
 import { GameDetailsComponent } from './components/game-details/game-details.component';
+import { LoadingComponent } from './components/loading/loading.component';
+import { FilterByTitle } from './components/manager/filter-by-title.pipe';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,8 @@ import { GameDetailsComponent } from './components/game-details/game-details.com
     ManagerComponent,
     HighlightComponent,
     GameDetailsComponent,
+    LoadingComponent,
+    FilterByTitle,
   ],
   imports: [
     BrowserModule,

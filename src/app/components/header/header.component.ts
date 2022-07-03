@@ -26,6 +26,14 @@ export class HeaderComponent implements OnInit {
     this.router.navigateByUrl('')
   }
 
+  handleLogoClick(): void {
+    if(this.tokenService.hasToken()) {
+      this.router.navigateByUrl('home/games')
+    } else {
+      this.router.navigateByUrl('')
+    }
+  }
+
   isAuthenticated() {
     return this.tokenService.hasToken()
   }

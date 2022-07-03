@@ -1,5 +1,22 @@
 <div class="tela-inicial">
-    <div class="games-list">
-        <app-game-card [game]="game" *ngFor="let game of games"></app-game-card>
+    <div class="upper-container">
+        <div class="container-text">
+            <h1>Games</h1>
+            <p>Games manager portal</p>
+        </div>
+        <div class="search-bar-container">
+            <form>
+                <input 
+                    class="search-bar" 
+                    type="search" name="gameName" 
+                    placeholder="Search from..." 
+                    (keyup)="onKeyUp($event.target)"
+                ngModel>
+            </form>
+            <button class="new-game-button">NEW GAME+</button>
+        </div>
+    </div>
+    <div class="games-list" >
+            <app-game-card  [game]="game" *ngFor="let game of games | filterByTitle: filter"></app-game-card>
     </div>
 </div>

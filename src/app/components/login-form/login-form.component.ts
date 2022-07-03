@@ -15,7 +15,7 @@ export class LoginFormComponent implements OnInit {
   userAuth: User;
   loginForm: FormGroup;
   @ViewChild('userNameInput') userNameInput: ElementRef;
-
+  isFeching: boolean;
   constructor(
     private formBuilder: FormBuilder,
     private authService: LoginService,
@@ -39,9 +39,9 @@ export class LoginFormComponent implements OnInit {
     this.authService
       .authenticate(email, password)
       .subscribe(res => {
-        console.log(res.token)
         this.tokenService.setToken(res.token)
         this.router.navigateByUrl('home/games')
+        this.isFeching = true;
       }, () => {
         this.loginForm.reset();
         this.userNameInput.nativeElement.focus()

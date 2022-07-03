@@ -1,7 +1,64 @@
+.tela-inicial {
+    min-height: 100vh;
+}
+
+.upper-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
 .games-list {
     padding: 10px;
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    align-items: center;
+    justify-items: center;
     gap: 40px;
     flex-wrap: wrap;
+    margin: 0 30px 30px 30px;
+}
+
+.container-text {
+    margin-left: 20px;
+}
+
+.container-text p {
+    margin-top: 5px;
+    color: rgb(201, 185, 185);
+}
+
+.search-bar-container {
+    margin-right: 20px;
+    display: flex;
+    gap: 20px;
+}
+
+.search-bar, .new-game-button {
+    height: 50px;
+}
+
+.search-bar {
+    width: 300px;
+    background-color: rgb(27, 25, 25);
+    border: 3px solid rgb(252, 42, 42);
+    color: #fff;
+    padding-left: 20px;
+    font-size: 1.2em;
+}
+
+.search-bar:focus {
+    outline: none;
+}
+
+.new-game-button {
+    width: 150px;
+    background-color: rgb(252, 68, 68);
+    color: #fff;
+    letter-spacing: 1px;
+    font-weight: 500;
+    border: none;
 }
