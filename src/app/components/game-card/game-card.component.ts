@@ -9,13 +9,16 @@ import { Game } from '../../interfaces/Game';
 })
 export class GameCardComponent implements OnInit {
   @Input() game: Game = {title: '', description: '', _id: ''};
-  
-  constructor(private router: Router) { }
+  @Input() games: Game[];
+
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit(): void {}
-  // (src)="game.photos[0]"
-  navigateToDetails(): void {
-    this.router.navigateByUrl(`game/${this.game._id}`)
+
+  navigateToGameDetails(): void {
+    this.router.navigateByUrl(`game/${this.game._id}`, { state: this.games })
   }
 
   getPrimaryPhoto() {

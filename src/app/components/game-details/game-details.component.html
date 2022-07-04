@@ -1,1 +1,73 @@
-<div>game-details works!</div>
+<div class="details-title">
+    <fa-icon 
+        class="home-icon" [icon]="faHome"
+        (click)="handleHomeIconClick()">
+    </fa-icon><span class="game-title"> | {{game.title}}</span>
+</div>
+<div class="game-details">
+
+    <div class="game-photo-container">
+        <img [src]="getPrimaryPhoto()" class="game-img"  alt="Game image">
+        <div class="games-carrousel-container" *ngFor="let game of games"></div>
+    </div>
+
+    <div class="game-details-container">
+
+        <div class="container">
+            <div class="rating-container">
+                <span class="game-rating">{{game.rating}}/10</span>
+                <span class="details-game-title">{{game.title}}</span>
+            </div>
+            <div class="text resumed-resume">{{game.resume}}</div> <!--border botton 1x-->
+        </div>
+
+        <div class="container">
+            <div class="game-info-container">
+                <span class="body-text">Genres: </span>
+                <span class="body-text-info">{{game.genres}}</span>
+            </div>
+            <!-- <div>
+                <span class="body-text">Studio: </span>
+                <span class="body-text-info">{{game.studio}}</span>
+            </div> -->
+            <!-- <div>
+                <span class="body-text">Productor: </span>
+                <span class="body-text-info">{{game.company???}}</span>
+            </div> -->
+            <div class="game-info-container">
+                <span class="body-text">Total votes: </span>
+                <span class="body-text-info">{{game.totalVotes}}</span>
+            </div>
+            <!-- <div>
+                <span class="body-text">Company: </span>
+                <span class="body-text-info">{{game.company}}</span>
+            </div> -->
+            <div class="game-info-container">
+                <span class="body-text">Platforms: </span>
+                <span class="body-text-info">{{game.platforms | formatArrayIntoStringPipe}}</span>
+            </div>
+            <div class="game-info-container" *ngIf="!!game.tags?.length"> <!--border botton 1x-->
+                <span class="body-text">Tags: </span>
+                <span class="body-text-info">{{game.tags | formatArrayIntoStringPipe}}</span> <!--if !gameTags, return empty[] -->
+            </div>
+        
+        </div>
+        <div class="game-info-container">
+            <div class="text medium-price" 
+            *ngIf="!!game.mediumPrice else freeGame">Medium Price 
+            <span class="price">${{game.mediumPrice}}.00</span>
+        </div>
+        </div>
+        <div class="text release-date">Release Year {{game.releaseYear}}</div>
+        <div>show stars to vote here</div>
+        <button class="vote-button">VOTE NOW</button> <!--border botton 1x-->
+        <!-- Bbutton that submits the vote and telss the user if was sucessfull -->
+    </div>
+</div>
+<div class="description">
+    <div class="description-title">DESCRIPTION</div>
+    <p class="description-body">{{game.description}}</p>
+</div>
+<ng-template #freeGame>
+    <div class="text medium-price">Free Game!</div>
+</ng-template>

@@ -37,15 +37,8 @@ export class ManagerComponent implements OnInit {
     if (this.games.some((game) => game.title == this.gameName)) {
       this.gameQueried = this.games.find((game) => game.title == this.gameName)
     }
-    // this._setGameQueried()
     return this.games.find((game) => game.title == this.gameName)
   }
-  
-  // _setGameQueried() {
-  //   if(!!this.getGame()) {
-  //     this.hasGameQueried = true
-  //   }
-  // }
 
   onKeyUp(target : any) {
     if(target instanceof EventTarget) {

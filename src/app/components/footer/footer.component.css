@@ -1,6 +1,6 @@
 .footer {
     bottom: 0;
-    background: rgb(78, 73, 73);
+    background: rgb(42, 39, 38);
     height: 50px;
     width: 100%;
 
@@ -14,6 +14,11 @@
     font-family: "Helvetica Neue",Helvetica,Arial;
     color: #fff;
     margin-left: 30px;
+}
+
+.git-link {
+    text-decoration: none;
+    color: #fff;
 }
 
 .social-media a {

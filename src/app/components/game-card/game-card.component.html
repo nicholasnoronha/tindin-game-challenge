@@ -1,4 +1,4 @@
-<a (click)="navigateToDetails()" class="game-card">
+<a (click)="navigateToGameDetails()" class="game-card">
     <img [src]="getPrimaryPhoto()" class="game-img"  alt="Game image">
     <p class="game-title">{{game.title | uppercase }}</p>
     <p class="game-price" *ngIf="game.mediumPrice else free">${{game.mediumPrice}}</p>

@@ -17,6 +17,8 @@ import { HighlightComponent } from './components/tela-inicial/highlight/highligh
 import { GameDetailsComponent } from './components/game-details/game-details.component';
 import { LoadingComponent } from './components/loading/loading.component';
 import { FilterByTitle } from './components/manager/filter-by-title.pipe';
+import { FormatArrayIntoStringPipe } from './components/game-details/format-array.pipe';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,7 @@ import { FilterByTitle } from './components/manager/filter-by-title.pipe';
     GameDetailsComponent,
     LoadingComponent,
     FilterByTitle,
+    FormatArrayIntoStringPipe,
   ],
   imports: [
     BrowserModule,
@@ -39,6 +42,7 @@ import { FilterByTitle } from './components/manager/filter-by-title.pipe';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    FontAwesomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -17,6 +17,6 @@
         </div>
     </div>
     <div class="games-list" >
-            <app-game-card  [game]="game" *ngFor="let game of games | filterByTitle: filter"></app-game-card>
+            <app-game-card  [games]="games" [game]="game" *ngFor="let game of games | filterByTitle: filter"></app-game-card>
     </div>
 </div>

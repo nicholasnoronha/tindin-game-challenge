@@ -20,8 +20,8 @@ export class TokenService {
     window.localStorage.setItem(key, authToken)
   }
 
-  getToken() {
-    return window.localStorage.getItem(key)
+  getToken(): string | [] {
+    return window.localStorage.getItem(key) || []
   }
 
   removeToken() {

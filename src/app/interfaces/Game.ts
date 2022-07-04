@@ -4,6 +4,7 @@ export interface Game {
     title: string;
     description: string;
     _id: string;
+    resume?: string;
     rating?: number;
     totalVotes?: number;
     photos?: Photo[];
