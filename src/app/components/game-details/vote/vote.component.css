@@ -1,8 +1,12 @@
 .vote-container {
+    margin-left: 20px;
     transition: all .5s;
 }
 
 button {
-    /* color: white; */
+    color: white;
+    border: none;
+    margin-left: 5px;
     padding: 1rem;
+    background: rgb(255, 68, 68)
 }
