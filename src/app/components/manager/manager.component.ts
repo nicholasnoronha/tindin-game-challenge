@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { GameService } from 'src/app/services/game.service';
 import { Game } from '../../interfaces/Game'
 
@@ -19,7 +20,8 @@ export class ManagerComponent implements OnInit {
   
   constructor(
     private gameService: GameService,
-    private httpClient: HttpClient
+    private router: Router,
+    private httpClient: HttpClient,
     ) { }
 
   ngOnInit(): void {
@@ -27,6 +29,7 @@ export class ManagerComponent implements OnInit {
       .getGamesList()
       .subscribe((res) => {
         this.games = res.games
+        console.log(res.games)
         this.isFeching = true
       })
   }
@@ -45,5 +48,9 @@ export class ManagerComponent implements OnInit {
       var element = target as HTMLInputElement;
       this.filter = element.value;
     }
+  }
+
+  navigateToNewGame(): void {
+    this.router.navigateByUrl('games/new-game')
   }
 }

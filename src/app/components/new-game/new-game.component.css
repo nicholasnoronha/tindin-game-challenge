@@ -1,0 +1,122 @@
+.home-icon {
+    cursor: pointer;
+}
+
+.game-details {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.border-container {
+    border-bottom: 1px solid white;
+    width: 95%;
+}
+
+.game-resume {
+    width: 100%;
+}
+
+.upper-container input{
+    width: 95%;
+}
+
+::placeholder {
+    color: rgb(186, 160, 160);
+    opacity: 1;
+    font-size: 1.2em;
+}
+
+.game-input {
+    background-color: rgb(44, 43, 43);
+    border: 2px solid rgb(252, 68, 68);
+    color: white;
+    padding: 5px;
+    color: rgb(186, 160, 160);
+}
+
+.game-select {
+    width: 80%;
+    margin-right: 50px;
+}
+
+.input-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+
+.buttons {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 50px;
+    gap: 50px;
+}
+
+.save-button, .cancel-button {
+    margin-top: 100px;
+    border: none;
+    background:rgb(252, 68, 68); 
+    padding: 1rem 2.5rem;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+}
+
+.cancel-button {
+    background:rgb(151, 133, 133);
+    width: 200px;
+}
+
+.body-text {
+    font-weight: bold;
+}
+
+span, .text {
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+
+.details-title {
+    text-align: center;
+    padding: 30px 0;
+    font-size: 1em;
+    color: #fff;
+}
+
+.home-icon {
+    color: #fff;
+}
+
+.game-img {
+    margin-left: 30px;
+    padding: 10px 0;
+    height: 600px;
+    width: 600px;
+}
+
+.game-details-container{
+    margin-left: 20px;
+    color: #fff;
+}
+
+.description {
+    font-size: 1.1em;
+}
+
+.add-photo {
+    background-color: rgb(252, 68, 68);
+    color: #fff;
+    margin: 20px 50px;
+    width: 13%;
+    height: 10%;
+    cursor: pointer;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+}

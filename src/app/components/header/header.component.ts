@@ -8,7 +8,7 @@ import { TokenService } from 'src/app/services/auth/token.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
+  filter: string = ""
   constructor(
     private router: Router,
     private tokenService: TokenService
@@ -36,5 +36,12 @@ export class HeaderComponent implements OnInit {
 
   isAuthenticated() {
     return this.tokenService.hasToken()
+  }
+
+  onKeyUp(target : any) {
+    if(target instanceof EventTarget) {
+      var element = target as HTMLInputElement;
+      this.filter = element.value;
+    }
   }
 }

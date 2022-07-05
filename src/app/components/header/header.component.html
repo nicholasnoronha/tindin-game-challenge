@@ -2,8 +2,8 @@
     <a role="button" (click)="handleLogoClick()">
         <img src="../../../assets/logo.png" alt="Tindin Blue Logo" class="logo">
     </a>
-    <div class="search-bar">
-        <input type="text" placeholder="Search game here">
+    <div class="search-bar" *ngIf="!isAuthenticated()">
+        <input (keyup)="onKeyUp($event.target)" type="text" placeholder="Search game here">
         <button>Search</button>
     </div>
     <button *ngIf="!isAuthenticated() else anotherButton" class="login-button" (click)="handleLoginClick()">Login</button>

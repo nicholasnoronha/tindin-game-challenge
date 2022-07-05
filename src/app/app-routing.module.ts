@@ -6,12 +6,14 @@ import { LoginFormComponent } from './components/login-form/login-form.component
 import { ManagerComponent } from './components/manager/manager.component';
 import { AuthGuard } from './services/auth/auth.guard';
 import { GameDetailsComponent } from './components/game-details/game-details.component';
+import { NewGameComponent } from './components/new-game/new-game.component';
 
 const routes: Routes = [
     { path: '', component: TelaInicialComponent},
     { path: 'login', component: LoginFormComponent, canActivate: [AuthGuard]},
     { path: 'home/games', component: ManagerComponent},
     { path: 'game/:gameId', component: GameDetailsComponent},
+    { path: 'games/new-game', component: NewGameComponent},
     { path: '**', component: PageNotFoundComponent},
 ]
 

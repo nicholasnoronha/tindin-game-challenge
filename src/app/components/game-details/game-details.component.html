@@ -60,7 +60,10 @@
         </div>
         <div class="text release-date">Release Year {{game.releaseYear}}</div>
         <div>show stars to vote here</div>
-        <button class="vote-button">VOTE NOW</button> <!--border botton 1x-->
+        <div class="vote-container">
+            <button (click)="showVote()" class="vote-button">VOTE NOW</button> <!--border botton 1x-->
+            <app-vote *ngIf="showVoteComponent"></app-vote>
+        </div>
         <!-- Bbutton that submits the vote and telss the user if was sucessfull -->
     </div>
 </div>

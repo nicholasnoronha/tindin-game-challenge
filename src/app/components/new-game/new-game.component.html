@@ -1,0 +1,88 @@
+<div class="details-title">
+    <fa-icon 
+        class="home-icon" [icon]="faHome"
+        (click)="handleHomeIconClick()">
+    </fa-icon><span class="game-title" *ngIf="game.title"> | {{game.title}}</span>
+</div>
+<div class="game-details">
+    <div class="game-photo-container">
+        <img *ngIf="!!photo else notFoundImage" [src]="photo" class="game-img"  alt="Game image"> <!-- needs to change after photo insert with link-->
+    </div>
+
+    <form [formGroup]="gameForm" (submit)="postGame()">
+        <div class="game-details-container">
+            <div class="upper-container container">
+                <input formControlName="gameTitle" type="text" class="text game-name game-input" placeholder="Enter game name">
+                <input formControlName="gameResume" type="text" class="text game-resume game-input" placeholder="Enter game resume here">
+            </div>
+            <div class="upper-container border-container"></div>
+    
+            <div class="container">
+                <div class="input-container">
+                    <label class="body-text">Genres: </label>
+                    <select formControlName="gameGenres" class="game-input game-select" type="select">
+                        <option value="" disabled selected>Select genres</option>
+                        <option *ngFor="let genre of genres">{{genre}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="input-container">
+                <label class="body-text">Studio: </label>
+                <select formControlName="gameStudio" class="game-input game-select" type="select">
+                    <option value="" disabled selected>Select one studio</option>
+                </select>
+            </div>
+            <div class="input-container">
+                <label class="body-text">company: </label>
+                <select formControlName="gameCompany" class="game-input game-select" type="select"> <!--1-->
+                    <option value="" disabled selected>Select one company</option>
+                </select>
+            </div>
+            <div class="input-container">
+                <label class="body-text">Platforms: </label>
+                <select formControlName="gamePlatform" class="game-input game-select" type="select"> <!--1-->
+                    <option value="" disabled selected>Select one platforms</option>
+                    <option *ngFor="let plat of platforms">{{plat}}</option>
+                </select>
+            </div>
+            <div class="input-container">
+                <label class="body-text">Tags: </label>
+                <input formControlName="gameTags" class="game-input game-select" type="text" placeholder="Enter tags">
+            </div>
+            <div class="input-container">
+                <label class="body-text">Medium Price: </label>
+                <input formControlName="gameMediumPrice" class="game-input game-select" type="text" placeholder="Enter medium price">
+            </div>
+            <div class="input-container">
+                <label class="body-text">Release Year: </label>
+                <input formControlName="gameReleaseYear" class="game-input game-select" type="text" placeholder="Enter release year">
+            </div>
+            <div class="input-container">
+                <label class="body-text">Photo Url: </label>
+                <!-- #photoUrl  -->
+                <input formControlName="gamePhotoLink" 
+                    class="game-input game-select" 
+                    type="text" 
+                    placeholder="Enter photo url here"
+                    [ngModel]="photo"
+                    (ngModelChange)="onPhotoChange($event)"
+                >
+            </div>
+            <div class="input-container">
+                <label class="body-text">Description: </label>
+                <textarea formControlName="gameDescription" rows="8" class="game-input game-select description" type="text" placeholder="Enter game description">
+                </textarea>
+            </div>
+            <div class="buttons">
+                <button (click)="handleHomeIconClick()" class="cancel-button">CANCEL</button>
+                <button type="submit" class="save-button">SAVE GAME</button>
+                <!-- Bbutton that submits the vote and telss the user if was sucessfull -->
+            </div>
+        </div>
+    </form>
+</div>
+
+<ng-template #notFoundImage>
+    <p>to no not found</p>
+    <img class="game-img" src='../../../assets/img-not-found.png' />
+</ng-template>

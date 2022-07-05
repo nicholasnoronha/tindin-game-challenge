@@ -12,30 +12,41 @@ interface GameReq {
   game: Game
 }
 
+interface GameRate {
+  gameId: string, 
+  rate: number
+}
+
 @Injectable({
   providedIn: 'root'
 })
+
 export class GameService {
   token: string | [];
+  apiUrl: string = 'https://api-labs.tindin.com.br'
   constructor(
     private http: HttpClient,
     private tokenService: TokenService,
   ) {
     this.token = this.tokenService.getToken();
   }
+
   getGamesList() {
     return this.http
-      .get<GamesReq>('https://api-labs.tindin.com.br/games')
+    .get<GamesReq>(`${this.apiUrl}/games`)
   }
   
   getGame(id: string) {
     return this.http
-      .get<GameReq>(`https://api-labs.tindin.com.br/games/${id}`)
+      .get<GameReq>(`${this.apiUrl}/games/${id}`)
   } 
 
   postGame(game: Game) {
-    const headers = { "x-api-key": String(this.token) }
     return this.http
-      .post(`https://api-labs.tindin.com.br/games`, { headers })
+      .post(`${this.apiUrl}/games`, game)
+  }
+
+  rateGame(gameRate: GameRate) {
+    return this.http.post(`${this.apiUrl}/games/rate`, gameRate)
   }
 }

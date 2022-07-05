@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -19,6 +19,9 @@ import { LoadingComponent } from './components/loading/loading.component';
 import { FilterByTitle } from './components/manager/filter-by-title.pipe';
 import { FormatArrayIntoStringPipe } from './components/game-details/format-array.pipe';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { NewGameComponent } from './components/new-game/new-game.component';
+import { RequestInterceptor } from './services/interceptors/token.interceptor';
+import { VoteComponent } from './components/game-details/vote/vote.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +38,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     LoadingComponent,
     FilterByTitle,
     FormatArrayIntoStringPipe,
+    NewGameComponent,
+    VoteComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,7 +49,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     ReactiveFormsModule,
     FontAwesomeModule,
   ],
-  providers: [],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: RequestInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -13,7 +13,8 @@ export class TokenService {
   }
 
   hasToken() {
-    return !!this.getToken()
+    // console.log(!!this.getToken())
+    return !!this.getToken() && !!this.getToken().length
   }
 
   setToken(authToken: string): void {

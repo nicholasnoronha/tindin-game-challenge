@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { HttpInterceptor } from "@angular/common/http";
+import { HttpEvent, HttpInterceptor } from "@angular/common/http";
 import { HttpRequest } from "@angular/common/http";
 import { HttpHandler } from "@angular/common/http";
 import { Observable } from "rxjs";
@@ -15,17 +15,12 @@ export class RequestInterceptor implements HttpInterceptor {
 
     constructor(private tokenService: TokenService){}
 
-    intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpSentEvent
-    | HttpHeaderResponse | HttpProgressEvent | HttpResponse<any> | HttpUserEvent<any>> {
+    intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
         if(this.tokenService.hasToken()){
             const token = this.tokenService.getToken()
             console.log('interceptor ', token)
-            req = req.clone({
-                setHeaders: {
-                    'Authorization': `Bearer ${token}`
-                }
-            })
+            req = req.clone({ headers: req.headers.append('x-api-key', token) });
         }
         
         return next.handle(req);

@@ -1,0 +1,8 @@
+.vote-container {
+    transition: all .5s;
+}
+
+button {
+    /* color: white; */
+    padding: 1rem;
+}

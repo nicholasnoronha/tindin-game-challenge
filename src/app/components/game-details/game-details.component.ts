@@ -17,6 +17,7 @@ export class GameDetailsComponent implements OnInit {
   faYoutube = faYoutube;
   faHome = faHome;
 
+  showVoteComponent: boolean = false;
   constructor(
     private gameService: GameService,
     private activatedRoute: ActivatedRoute,
@@ -51,5 +52,11 @@ export class GameDetailsComponent implements OnInit {
     } else {
       this.router.navigateByUrl('')
     }
+  }
+
+  showVote() {
+    console.log('cliquei')
+    console.log(this.showVoteComponent)
+    this.showVoteComponent = !this.showVoteComponent
   }
 }

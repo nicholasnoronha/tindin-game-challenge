@@ -13,7 +13,7 @@
                     (keyup)="onKeyUp($event.target)"
                 ngModel>
             </form>
-            <button class="new-game-button">NEW GAME+</button>
+            <button (click)="navigateToNewGame()" class="new-game-button">NEW GAME+</button>
         </div>
     </div>
     <div class="games-list" >
